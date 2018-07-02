@@ -1,0 +1,21 @@
+# Forward v4/v6 traffic
+__sysctl net.ipv6.conf.all.forwarding --value 1
+__sysctl net.ipv4.conf.all.forwarding --value 1
+
+# Set ARP cache garbage collection interval
+__sysctl net.ipv4.neigh.default.gc_interval --value 3600
+__sysctl net.ipv6.neigh.default.gc_interval --value 3600
+
+# Set ARP cache entry timeout
+__sysctl net.ipv4.neigh.default.gc_stale_time --value 3600
+__sysctl net.ipv6.neigh.default.gc_stale_time --value 3600
+
+# Setup cache threshold for ARP
+__sysctl net.ipv4.neigh.default.gc_thresh1 --value 1024
+__sysctl net.ipv4.neigh.default.gc_thresh2 --value 2048
+__sysctl net.ipv4.neigh.default.gc_thresh3 --value 4096
+
+# And the same for IPv6
+__sysctl net.ipv6.neigh.default.gc_thresh1 --value 1024
+__sysctl net.ipv6.neigh.default.gc_thresh2 --value 2048
+__sysctl net.ipv6.neigh.default.gc_thresh3 --value 4096
